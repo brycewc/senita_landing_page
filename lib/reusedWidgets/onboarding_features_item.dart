@@ -24,7 +24,7 @@ class OnboardingFeature extends StatelessWidget {
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     color: color,
-                    fontSize: 24,
+                    fontSize: 17,
                     height: 1.5),
                 children: paragraph,
               ))),

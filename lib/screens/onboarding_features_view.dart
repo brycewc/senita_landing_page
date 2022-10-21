@@ -14,17 +14,17 @@ class OnboardingFeaturesView extends StatelessWidget {
         color: const Color.fromRGBO(255, 251, 245, 1),
         child: Column(
           children: [
-            SizedBox(height: width * 0.05),
+            SizedBox(height: width * 0.075),
             SizedText(
-                width: width * 0.4,
+                width: width * 0.6,
                 text: const Text('New Employee\nOnboarding Features',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color.fromRGBO(200, 162, 135, 1),
-                        fontSize: 60,
+                        fontSize: 42,
                         height: 1.25))),
             SizedBox(height: width * 0.05),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Row(children: [
               Column(children: [
                 OnboardingFeature(
                     paragraph: [
@@ -37,7 +37,7 @@ class OnboardingFeaturesView extends StatelessWidget {
                             'data-backed\npairings support new employees in\ncreating lasting relationships with a\ndiverse set of collegues',
                       )
                     ],
-                    width: width * 0.6,
+                    width: width * 0.75,
                     color: const Color.fromRGBO(77, 63, 40, 1)),
                 SizedBox(height: width * 0.025),
                 OnboardingFeature(
@@ -50,7 +50,7 @@ class OnboardingFeaturesView extends StatelessWidget {
                             'Measure how well new employees are\nbeing incorporated',
                       )
                     ],
-                    width: width * 0.6,
+                    width: width * 0.75,
                     color: const Color.fromRGBO(77, 63, 40, 1)),
                 SizedBox(height: width * 0.025),
                 OnboardingFeature(
@@ -64,12 +64,11 @@ class OnboardingFeaturesView extends StatelessWidget {
                             'into how new\nemployees are feeling during each\nstage of onboarding',
                       )
                     ],
-                    width: width * 0.6,
+                    width: width * 0.75,
                     color: const Color.fromRGBO(77, 63, 40, 1))
               ]),
-              Image.asset('images/thermometer.png', width: width * 0.1),
-            ]),
-            SizedBox(height: width * 0.05)
+              Image.asset('images/thermometer.png', width: width * 0.1)
+            ])
           ],
         ));
   }

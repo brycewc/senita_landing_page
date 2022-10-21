@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:landing_page/screens/home_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_palette/flutter_palette.dart';
-// Amplify Flutter Packages
-import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'amplifyconfiguration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +27,7 @@ class MyApp extends StatelessWidget {
     ]);
 
     return MaterialApp(
-        title: 'Senita - Employee Engagement',
+        title: 'Flutter Landing Page',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           textTheme: GoogleFonts.cairoTextTheme(
@@ -40,58 +36,4 @@ class MyApp extends StatelessWidget {
         ),
         home: Scaffold(body: PageView(children: const [HomeView()])));
   }
-}
-
-class SenitaLandingPage extends StatefulWidget {
-  const SenitaLandingPage({
-    super.key,
-    this.color = const Color(0xFFFFE306),
-    this.child,
-  });
-
-  final Color color;
-  final Widget? child;
-
-  @override
-  State<SenitaLandingPage> createState() => _SenitaLandingPageState();
-}
-
-class _SenitaLandingPageState extends State<SenitaLandingPage> {
-  double _size = 1.0;
-
-  void grow() {
-    setState(() { _size += 0.1; });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: widget.color,
-      transform: Matrix4.diagonal3Values(_size, _size, 1.0),
-      child: widget.child,
-    );
-  }
-
-  @override
-  initState() {
-    super.initState();
-    _configureAmplify();
-  }
-
-  Future<void> _configureAmplify() async {
-
-    // Add any Amplify plugins you want to use
-    final authPlugin = AmplifyAuthCognito();
-    await Amplify.addPlugin(authPlugin);
-
-    // You can use addPlugins if you are going to be adding multiple plugins
-    // await Amplify.addPlugins([authPlugin, analyticsPlugin]);
-
-    // Once Plugins are added, configure Amplify
-    // Note: Amplify can only be configured once.
-    try {
-      await Amplify.configure(amplifyconfig);
-    } on AmplifyAlreadyConfiguredException {
-      safePrint("Tried to reconfigure Amplify; this can occur when your app restarts on Android.");
-    }
 }
